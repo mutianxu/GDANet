@@ -1,8 +1,12 @@
-# Learning Geometry-Disentangled Representation for Complementary Understanding of 3D Object Point Cloud. AAAI 2021
-Learning Geometry-Disentangled Representation for Complementary Understanding of 3D Object Point Cloud
+# Learning Geometry-Disentangled Representation for Complementary Understanding of 3D Object Point Cloud. 
+This repository is built for the paper:
+
+__Learning Geometry-Disentangled Representation for Complementary Understanding of 3D Object Point Cloud. (_AAAI2021_)__ [[arXiv](https://arxiv.org/abs/2012.10921)]
+<br>
+by Mutian Xu*, Junhao Zhang*, Zhipeng Zhou, Mingye Xu, Xiaojuan Qi and Yu Qiao
+
 
 ## Overview
-
 <img src = './imgs/GDANet.jpg' width = 800>
 
 Futher information please contact Mutian Xu (mino1018@outlook.com)
