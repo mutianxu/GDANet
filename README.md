@@ -7,9 +7,8 @@ by [Mutian Xu*](https://mutianxu.github.io/), [Junhao Zhang*](https://junhaozhan
 
 
 ## Overview
+Geometry-Disentangled Attention Network for 3D object point cloud classification and segmentation (GDANet):
 <img src = './imgs/GDANet.jpg' width = 800>
-
-Futher information please contact Mutian Xu (mino1018@outlook.com) or Junhao Zhang (junhaozhang98@gmail.com).
 
 ## Citation
 If you find the code or trained models useful, please consider citing:
@@ -51,6 +50,8 @@ python main.py
 
 ## Other information
 We will release the classification model on ScanObjectNN and the part segmentation code later. 
+
+Futher information please contact Mutian Xu (mino1018@outlook.com) or Junhao Zhang (junhaozhang98@gmail.com).
 
 ## Acknowledgement
 This code is is heavily borrowed from [DGCNN](https://github.com/WangYueFt/dgcnn).  
