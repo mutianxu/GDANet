@@ -97,9 +97,9 @@ class GDANET(nn.Module):
         x3 = F.relu(self.conv3(x3))
         x3 = F.relu(self.conv31(x3))
         x3 = x3.max(dim=-1, keepdim=False)[0]
-        x3 = F.relu(self.conv32(x3))
+        z3 = F.relu(self.conv32(x3))
         ###############
-        x = torch.cat((x1, x2, x3), dim=1)
+        x = torch.cat((z1, z2, z3), dim=1)
         x = F.relu(self.conv4(x))   # 512
         x11 = F.adaptive_max_pool1d(x, 1).view(B, -1)
         x22 = F.adaptive_avg_pool1d(x, 1).view(B, -1)

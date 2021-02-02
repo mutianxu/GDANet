@@ -72,7 +72,7 @@ def GDM(x, M):
     c = c.expand(batch_size, num_points, num_points)
     D = b * c  # b,n,n
 
-    A = torch.matmul(D, w)  # transition matrix in the paper: b,n,n
+    A = torch.matmul(D, w)  # normalized adjacency matrix A_hat
     ###############
     idx2 = idx.view(batch_size * num_points, -1)
     idx_base2 = torch.arange(0, batch_size * num_points, device=device).view(-1, 1) * num_points
