@@ -15,7 +15,7 @@ def local_operator(x, k):
     batch_size = x.size(0)
     num_points = x.size(2)
     x = x.view(batch_size, -1, num_points)
-    idx, _ = knn(x, k=k)  # (batch_size, num_points, k)
+    idx, _ = knn(x, k=k)
     device = torch.device('cuda')
 
     idx_base = torch.arange(0, batch_size, device=device).view(-1, 1, 1) * num_points
@@ -73,7 +73,8 @@ def GDM(x, M):
     D = b * c  # b,n,n
 
     A = torch.matmul(D, w)  # normalized adjacency matrix A_hat
-    ###############
+
+    # Get Aij in a local area:
     idx2 = idx.view(batch_size * num_points, -1)
     idx_base2 = torch.arange(0, batch_size * num_points, device=device).view(-1, 1) * num_points
     idx2 = idx2 + idx_base2
@@ -85,6 +86,7 @@ def GDM(x, M):
     A = A.view(-1)
     A = A[idx2].reshape(batch_size, num_points, k - 1)  # Aij: b,n,k
     ###############
+    """Disentangling Point Clouds into Sharp(xs) and Gentle(xg) Variation Components:"""
     idx_base = torch.arange(0, batch_size, device=device).view(-1, 1, 1) * num_points
     idx = idx + idx_base
     idx = idx.reshape(batch_size * num_points, k)[:, 1:k]

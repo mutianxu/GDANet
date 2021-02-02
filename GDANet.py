@@ -26,14 +26,14 @@ class GDANET(nn.Module):
                                    self.bn1)
         self.conv11 = nn.Sequential(nn.Conv2d(64, 64, kernel_size=1, bias=True),
                                     self.bn11)
-        self.conv12 = nn.Sequential(nn.Conv1d(64*2, 64, kernel_size=1, bias=True),
+        self.conv12 = nn.Sequential(nn.Conv1d(64 * 2, 64, kernel_size=1, bias=True),
                                     self.bn12)
 
         self.conv2 = nn.Sequential(nn.Conv2d(67 * 2, 64, kernel_size=1, bias=True),
                                    self.bn2)
         self.conv21 = nn.Sequential(nn.Conv2d(64, 64, kernel_size=1, bias=True),
                                     self.bn21)
-        self.conv22 = nn.Sequential(nn.Conv1d(64*2, 64, kernel_size=1, bias=True),
+        self.conv22 = nn.Sequential(nn.Conv1d(64 * 2, 64, kernel_size=1, bias=True),
                                     self.bn22)
 
         self.conv3 = nn.Sequential(nn.Conv2d(131 * 2, 128, kernel_size=1, bias=True),

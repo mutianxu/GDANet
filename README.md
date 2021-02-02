@@ -17,7 +17,6 @@ If you find the code or trained models useful, please consider citing:
       eprint={2012.10921},
       archivePrefix={arXiv},
       primaryClass={cs.CV}
-}
 
 
 ## Installation
@@ -31,19 +30,23 @@ If you find the code or trained models useful, please consider citing:
 ## Usage
 
 ### 3D Object Classification on ModelNet40
-* Run the training script:
-
+* Train:
 ``` 
 python main.py 
 ```
-
-* Run the evaluation script:
-```
-python main.py --eval True --model_path 'pretrained/GDANet_ModelNet40_93.4.t7'
-```
+* Test:
+    * Run the voting evaluation script, after this voting you will get an accuracy of 93.8% if all things go right:
+    ```
+    python voting_evaluate_modelnet.py --model_path 'pretrained/GDANet_ModelNet40_93.4.t7'
+    ```
+    
+    * You can also directly evaluate our pretrained model without voting to get an accuracy of 93.4%:
+    ```
+    python main.py --eval True --model_path 'pretrained/GDANet_ModelNet40_93.4.t7'
+    ```
 
 ## Other information
 We will release classification model on ScanObjectNN and part segmentation code later. 
 
 ## Acknowledgement
-This code is based on [DGCNN](https://github.com/WangYueFt/dgcnn).  
+This code is is heavily borrowed from [DGCNN](https://github.com/WangYueFt/dgcnn).  
