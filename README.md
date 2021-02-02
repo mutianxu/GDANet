@@ -51,7 +51,7 @@ python main.py
 ## Other information
 We will release the classification model on ScanObjectNN and the part segmentation code later. 
 
-Futher information please contact Mutian Xu (mino1018@outlook.com) or Junhao Zhang (junhaozhang98@gmail.com).
+Please contact Mutian Xu (mino1018@outlook.com) or Junhao Zhang (junhaozhang98@gmail.com) for futher information .
 
 ## Acknowledgement
 This code is is heavily borrowed from [DGCNN](https://github.com/WangYueFt/dgcnn).  
