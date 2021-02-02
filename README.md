@@ -50,7 +50,7 @@ python main.py
     ```
 
 ## Other information
-We will release classification model on ScanObjectNN and part segmentation code later. 
+We will release the classification model on ScanObjectNN and the part segmentation code later. 
 
 ## Acknowledgement
 This code is is heavily borrowed from [DGCNN](https://github.com/WangYueFt/dgcnn).  
