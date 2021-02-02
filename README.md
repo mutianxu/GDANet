@@ -9,7 +9,7 @@ by [Mutian Xu*](https://mutianxu.github.io/), [Junhao Zhang*](https://junhaozhan
 ## Overview
 <img src = './imgs/GDANet.jpg' width = 800>
 
-Futher information please contact Mutian Xu (mino1018@outlook.com)
+Futher information please contact Mutian Xu (mino1018@outlook.com) or Junhao Zhang (junhaozhang98@gmail.com).
 
 ## Citation
 If you find the code or trained models useful, please consider citing:
