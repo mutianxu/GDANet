@@ -13,7 +13,7 @@ from util import cal_loss, IOStream
 import sklearn.metrics as metrics
 
 
-# initialization:
+# weight initialization:
 def weight_init(m):
     if isinstance(m, torch.nn.Linear):
         torch.nn.init.xavier_normal_(m.weight)
@@ -129,7 +129,7 @@ def train(args, io):
             test_pred.append(preds.detach().cpu().numpy())
         test_true = np.concatenate(test_true)
         test_pred = np.concatenate(test_pred)
-        test_acc = metrics.accuracy_score(test_true, test_pred) #use the accuracy function to comopute the accuracy of the test
+        test_acc = metrics.accuracy_score(test_true, test_pred)
         avg_per_class_acc = metrics.balanced_accuracy_score(test_true, test_pred)
         outstr = 'Test %d, loss: %.6f, test acc: %.6f, test avg acc: %.6f' % (epoch,
                                                                               test_loss*1.0/count,

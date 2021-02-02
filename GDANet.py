@@ -100,10 +100,10 @@ class GDANET(nn.Module):
         z3 = F.relu(self.conv32(x3))
         ###############
         x = torch.cat((z1, z2, z3), dim=1)
-        x = F.relu(self.conv4(x))   # 512
+        x = F.relu(self.conv4(x))
         x11 = F.adaptive_max_pool1d(x, 1).view(B, -1)
         x22 = F.adaptive_avg_pool1d(x, 1).view(B, -1)
-        x = torch.cat((x11, x22), 1)   # 1024
+        x = torch.cat((x11, x22), 1)
 
         x = F.relu(self.bn6(self.linear1(x)))
         x = self.dp1(x)
