@@ -30,6 +30,13 @@ If you find the code or trained models useful, please consider citing:
 * Python 3.5+
 * PyTorch 1.0+
 
+### Dataset
+Download and unzip [ModelNet40](https://shapenet.cs.stanford.edu/media/modelnet40_ply_hdf5_2048.zip) (415M). Then symlink the paths to it as follows:
+``` 
+mkdir -p data
+ln -s /paths to modelnet40/modelnet40_ply_hdf5_2048 data
+``` 
+
 ## Usage
 
 ### 3D Object Classification on ModelNet40
