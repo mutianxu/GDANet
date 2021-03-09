@@ -34,7 +34,7 @@ If you find the code or trained models useful, please consider citing:
 Download and unzip [ModelNet40](https://shapenet.cs.stanford.edu/media/modelnet40_ply_hdf5_2048.zip) (415M). Then symlink the paths to it as follows:
 ``` 
 mkdir -p data
-ln -s /paths to modelnet40/modelnet40_ply_hdf5_2048 data
+ln -s /path to modelnet40/modelnet40_ply_hdf5_2048 data
 ``` 
 
 ## Usage
@@ -58,7 +58,7 @@ python main.py
 ## Other information
 We will release the classification model on ScanObjectNN and the part segmentation code later. 
 
-Please contact Mutian Xu (mino1018@outlook.com) or Junhao Zhang (junhaozhang98@gmail.com) for futher information .
+Please contact Mutian Xu (mino1018@outlook.com) or Junhao Zhang (junhaozhang98@gmail.com) for futher information.
 
 ## Acknowledgement
 This code is is heavily borrowed from [DGCNN](https://github.com/WangYueFt/dgcnn).  
