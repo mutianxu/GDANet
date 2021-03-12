@@ -39,6 +39,38 @@ def local_operator(x, k):
     return feature
 
 
+def local_operator_withnorm(x, norm_plt, k):
+    batch_size = x.size(0)
+    num_points = x.size(2)
+    x = x.view(batch_size, -1, num_points)
+    norm_plt = norm_plt.view(batch_size, -1, num_points)
+    idx, _ = knn(x, k=k)  # (batch_size, num_points, k)
+    device = torch.device('cuda')
+
+    idx_base = torch.arange(0, batch_size, device=device).view(-1, 1, 1) * num_points
+
+    idx = idx + idx_base
+
+    idx = idx.view(-1)
+
+    _, num_dims, _ = x.size()
+
+    x = x.transpose(2, 1).contiguous()
+    norm_plt = norm_plt.transpose(2, 1).contiguous()
+
+    neighbor = x.view(batch_size * num_points, -1)[idx, :]
+    neighbor_norm = norm_plt.view(batch_size * num_points, -1)[idx, :]
+
+    neighbor = neighbor.view(batch_size, num_points, k, num_dims)
+    neighbor_norm = neighbor_norm.view(batch_size, num_points, k, num_dims)
+
+    x = x.view(batch_size, num_points, 1, num_dims).repeat(1, 1, k, 1)
+
+    feature = torch.cat((neighbor-x, neighbor, neighbor_norm), dim=3).permute(0, 3, 1, 2)  # 3c
+
+    return feature
+
+
 def GDM(x, M):
     """
     Geometry-Disentangle Module

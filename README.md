@@ -41,24 +41,41 @@ ln -s /path to modelnet40/modelnet40_ply_hdf5_2048 data
 
 ### 3D Object Classification on ModelNet40
 * Train:
-``` 
-python main.py 
-```
+ 
+    `python main_cls.py`
+
 * Test:
     * Run the voting evaluation script, after this voting you will get an accuracy of 93.8% if all things go right:
-    ```
-    python voting_evaluate_modelnet.py --model_path 'pretrained/GDANet_ModelNet40_93.4.t7'
-    ```
+    
+        `python voting_evaluate_modelnet.py --model_path 'pretrained/GDANet_ModelNet40_93.4.t7'`
     
     * You can also directly evaluate our pretrained model without voting to get an accuracy of 93.4%:
-    ```
-    python main.py --eval True --model_path 'pretrained/GDANet_ModelNet40_93.4.t7'
-    ```
+    
+        `python main.py --eval True --model_path 'pretrained/GDANet_ModelNet40_93.4.t7'`
+    
+### 3D Object Classification on ModelNet40
+* Train:
+
+   `python main_ptseg.py`
+   
+If you want to resume training from checkpoints, please specify `resume` in the args:
+
+    `python main_ptseg.py --resume True`
+
+* Test:
+
+    You can choose to test the model with the best instance mIoU, class mIoU or accuracy, by specifying `model_type` in the args:
+    
+    * `python main_ptseg.py --model_type 'ins_iou'` (best instance mIoU, default)
+    
+    * `python main_ptseg.py --model_type 'cls_iou'` (best class mIoU)
+    
+    * `python main_ptseg.py --model_type 'acc'` (best accuracy)
+
 
 ## Other information
-We will release the classification model on ScanObjectNN and the part segmentation code later. 
 
-Please contact Mutian Xu (mino1018@outlook.com) or Junhao Zhang (junhaozhang98@gmail.com) for futher information.
+Please contact Mutian Xu (mino1018@outlook.com) or Junhao Zhang (junhaozhang98@gmail.com) for further discussion.
 
 ## Acknowledgement
-This code is is heavily borrowed from [DGCNN](https://github.com/WangYueFt/dgcnn).  
+This code is is partially borrowed from [DGCNN](https://github.com/WangYueFt/dgcnn).  

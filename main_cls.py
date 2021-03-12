@@ -5,11 +5,11 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.optim.lr_scheduler import CosineAnnealingLR
-from data_util import ModelNet40
-from GDANet import GDANET
+from util.data_util import ModelNet40
+from model.GDANet_cls import GDANET
 import numpy as np
 from torch.utils.data import DataLoader
-from util import cal_loss, IOStream
+from util.util import cal_loss, IOStream
 import sklearn.metrics as metrics
 
 
@@ -40,10 +40,12 @@ def _init_():
     if not os.path.exists('checkpoints/'+args.exp_name+'/'+'models'):
         os.makedirs('checkpoints/'+args.exp_name+'/'+'models')
 
-    os.system('cp main.py checkpoints'+'/'+args.exp_name+'/'+'main.py.backup')
-    os.system('cp model.py checkpoints' + '/' + args.exp_name + '/' + 'model.py.backup')
-    os.system('cp util.py checkpoints' + '/' + args.exp_name + '/' + 'util.py.backup')
-    os.system('cp data.py checkpoints' + '/' + args.exp_name + '/' + 'data.py.backup')
+    # backup the running files:
+    if not args.eval:
+        os.system('cp main_cls.py checkpoints' + '/' + args.exp_name + '/' + 'main.py.backup')
+        os.system('cp model/GDANet_cls.py checkpoints' + '/' + args.exp_name + '/' + 'GDANet_cls.py.backup')
+        os.system('cp util.GDANet_util.py checkpoints' + '/' + args.exp_name + '/' + 'GDANet_util.py.backup')
+        os.system('cp util.data_util.py checkpoints' + '/' + args.exp_name + '/' + 'data_util.py.backup')
 
 
 def train(args, io):
@@ -175,14 +177,14 @@ def test(args, io):
 
 if __name__ == "__main__":
     # Training settings
-    parser = argparse.ArgumentParser(description='Point Cloud Recognition')
+    parser = argparse.ArgumentParser(description='3D Object Classification')
     parser.add_argument('--exp_name', type=str, default='GDANet', metavar='N',
                         help='Name of the experiment')
     parser.add_argument('--batch_size', type=int, default=64, metavar='batch_size',
                         help='Size of batch)')
     parser.add_argument('--test_batch_size', type=int, default=32, metavar='batch_size',
                         help='Size of batch)')
-    parser.add_argument('--epochs', type=int, default=450, metavar='N',
+    parser.add_argument('--epochs', type=int, default=350, metavar='N',
                         help='number of episode to train ')
     parser.add_argument('--use_sgd', type=bool, default=True,
                         help='Use SGD')

@@ -5,10 +5,10 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from data import ModelNet40
-from GDANet import GDANET
+from model.GDANet_cls import GDANET
 import numpy as np
 from torch.utils.data import DataLoader
-from util import cal_loss, IOStream
+from util.util import cal_loss, IOStream
 import sklearn.metrics as metrics
 
 
