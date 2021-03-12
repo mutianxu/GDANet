@@ -31,7 +31,7 @@ If you find the code or trained models useful, please consider citing:
 * PyTorch 1.0+
 
 ### Dataset
-* Create the folder to save the data:
+* Create the folder to symlink the data later:
     
     `mkdir -p data`
     
@@ -65,12 +65,13 @@ If you find the code or trained models useful, please consider citing:
     
 ### Shape Part Segmentation on ShapeNet Part
 * Train:
+    * Training from scratch:
 
-   `python main_ptseg.py`
+        `python main_ptseg.py`
    
-If you want to resume training from checkpoints, please specify `resume` in the args:
+    * If you want resume training from checkpoints, specify `resume` in the args:
 
-    `python main_ptseg.py --resume True`
+        `python main_ptseg.py --resume True`
 
 * Test:
 
@@ -88,4 +89,4 @@ If you want to resume training from checkpoints, please specify `resume` in the 
 Please contact Mutian Xu (mino1018@outlook.com) or Junhao Zhang (junhaozhang98@gmail.com) for further discussion.
 
 ## Acknowledgement
-This code is is partially borrowed from [DGCNN](https://github.com/WangYueFt/dgcnn).  
+This code is is partially borrowed from [DGCNN](https://github.com/WangYueFt/dgcnn) and [PointNet++](https://github.com/charlesq34/pointnet2).  
