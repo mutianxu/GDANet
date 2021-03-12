@@ -25,8 +25,6 @@ def _init_():
         os.makedirs('checkpoints')
     if not os.path.exists('checkpoints/' + args.exp_name):
         os.makedirs('checkpoints/' + args.exp_name)
-    if not os.path.exists('checkpoints/' + args.exp_name + '/' + '%s_savings' % args.exp_name):
-        os.makedirs('checkpoints/' + args.exp_name + '/' + '%s_savings' % args.exp_name)
 
     if not args.eval:  # backup the running files
         os.system('cp main_cls.py checkpoints' + '/' + args.exp_name + '/' + 'main.py.backup')
@@ -389,7 +387,7 @@ if __name__ == "__main__":
     parser.add_argument('--test_batch_size', type=int, default=32, metavar='batch_size',
                         help='Size of batch)')
     parser.add_argument('--epochs', type=int, default=350, metavar='N',
-                        help='number of episode to train ')
+                        help='number of episode to train')
     parser.add_argument('--use_sgd', type=bool, default=False,
                         help='Use SGD')
     parser.add_argument('--scheduler', type=str, default='step',

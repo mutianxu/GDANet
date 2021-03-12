@@ -37,8 +37,6 @@ def _init_():
         os.makedirs('checkpoints')
     if not os.path.exists('checkpoints/'+args.exp_name):
         os.makedirs('checkpoints/'+args.exp_name)
-    if not os.path.exists('checkpoints/'+args.exp_name+'/'+'models'):
-        os.makedirs('checkpoints/'+args.exp_name+'/'+'models')
 
     # backup the running files:
     if not args.eval:
@@ -185,7 +183,7 @@ if __name__ == "__main__":
     parser.add_argument('--test_batch_size', type=int, default=32, metavar='batch_size',
                         help='Size of batch)')
     parser.add_argument('--epochs', type=int, default=350, metavar='N',
-                        help='number of episode to train ')
+                        help='number of episode to train')
     parser.add_argument('--use_sgd', type=bool, default=True,
                         help='Use SGD')
     parser.add_argument('--lr', type=float, default=0.001, metavar='LR',
@@ -206,7 +204,10 @@ if __name__ == "__main__":
 
     _init_()
 
-    io = IOStream('checkpoints/' + args.exp_name + '/run.log')
+    if not args.eval:
+        io = IOStream('checkpoints/' + args.exp_name + '/%s_train.log' % (args.exp_name))
+    else:
+        io = IOStream('checkpoints/' + args.exp_name + '/%s_test.log' % (args.exp_name))
     io.cprint(str(args))
 
     args.cuda = not args.no_cuda and torch.cuda.is_available()

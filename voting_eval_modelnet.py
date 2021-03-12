@@ -4,7 +4,7 @@ import argparse
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from data import ModelNet40
+from util.data_util import ModelNet40
 from model.GDANet_cls import GDANET
 import numpy as np
 from torch.utils.data import DataLoader
@@ -82,20 +82,15 @@ def _init_():
         os.makedirs('checkpoints')
     if not os.path.exists('checkpoints/'+args.exp_name):
         os.makedirs('checkpoints/'+args.exp_name)
-    if not os.path.exists('checkpoints/'+args.exp_name+'/'+'%s_savings' % args.exp_name):
-        os.makedirs('checkpoints/'+args.exp_name+'/'+'%s_savings' % args.exp_name)
 
-    os.system('cp main.py checkpoints'+'/'+args.exp_name+'/'+'main.py.backup')
-    os.system('cp model.py checkpoints' + '/' + args.exp_name + '/' + 'model.py.backup')
-    os.system('cp util.py checkpoints' + '/' + args.exp_name + '/' + 'util.py.backup')
-    os.system('cp data.py checkpoints' + '/' + args.exp_name + '/' + 'data.py.backup')
+    os.system('cp voting_eval_modelnet.py checkpoints'+'/'+args.exp_name+'/'+'voting_eval_modelnet.py.backup')
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Point Cloud Recognition')
+    parser = argparse.ArgumentParser(description='3D Object Classification')
     parser.add_argument('--exp_name', type=str, default='GDANet', metavar='N',
                         help='Name of the experiment')
-    parser.add_argument('--test_batch_size', type=int, default=32, metavar='batch_size',
+    parser.add_argument('--test_batch_size', type=int, default=16, metavar='batch_size',
                         help='Size of batch)')
     parser.add_argument('--no_cuda', type=bool, default=False,
                         help='enables CUDA training')
@@ -118,8 +113,7 @@ if __name__ == "__main__":
     args.cuda = not args.no_cuda and torch.cuda.is_available()
     torch.manual_seed(args.seed)
     if args.cuda:
-        io.cprint(
-            'Using GPU : ' + str(torch.cuda.current_device()) + ' from ' + str(torch.cuda.device_count()) + ' devices')
+        io.cprint('Using GPU')
         torch.cuda.manual_seed(args.seed)
     else:
         io.cprint('Using CPU')

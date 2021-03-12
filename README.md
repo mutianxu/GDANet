@@ -31,15 +31,25 @@ If you find the code or trained models useful, please consider citing:
 * PyTorch 1.0+
 
 ### Dataset
-Download and unzip [ModelNet40](https://shapenet.cs.stanford.edu/media/modelnet40_ply_hdf5_2048.zip) (415M). Then symlink the paths to it as follows (you can alternatively modify the path [here](https://github.com/mutianxu/GDANet/blob/main/data_util.py#L10)):
-``` 
-mkdir -p data
-ln -s /path to modelnet40/modelnet40_ply_hdf5_2048 data
-``` 
+* Create the folder to save the data:
+    
+    `mkdir -p data`
+    
+* __Object Classification__: 
+
+    Download and unzip [ModelNet40](https://shapenet.cs.stanford.edu/media/modelnet40_ply_hdf5_2048.zip) (415M), then symlink the path to it as follows (you can alternatively modify the path [here](https://github.com/mutianxu/GDANet/blob/main/data_util.py#L12)) :
+    
+    `ln -s /path to modelnet40/modelnet40_ply_hdf5_2048 data`
+    
+* __Shape Part Segmentation__:
+    
+    Download and unzip [ShapeNet Part](https://shapenet.cs.stanford.edu/media/shapenetcore_partanno_segmentation_benchmark_v0_normal.zip) (674M), then symlink the path to it as follows (you can alternatively modify the path [here](https://github.com/mutianxu/GDANet/blob/main/data_util.py#L70)) :
+    
+    `ln -s /path to shapenet part/shapenetcore_partanno_segmentation_benchmark_v0_normal data`
 
 ## Usage
 
-### 3D Object Classification on ModelNet40
+### Object Classification on ModelNet40
 * Train:
  
     `python main_cls.py`
@@ -47,13 +57,13 @@ ln -s /path to modelnet40/modelnet40_ply_hdf5_2048 data
 * Test:
     * Run the voting evaluation script, after this voting you will get an accuracy of 93.8% if all things go right:
     
-        `python voting_evaluate_modelnet.py --model_path 'pretrained/GDANet_ModelNet40_93.4.t7'`
+        `python voting_eval_modelnet.py --model_path 'pretrained/GDANet_ModelNet40_93.4.t7'`
     
     * You can also directly evaluate our pretrained model without voting to get an accuracy of 93.4%:
     
         `python main.py --eval True --model_path 'pretrained/GDANet_ModelNet40_93.4.t7'`
     
-### 3D Object Classification on ModelNet40
+### Shape Part Segmentation on ShapeNet Part
 * Train:
 
    `python main_ptseg.py`
