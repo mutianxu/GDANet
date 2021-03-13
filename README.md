@@ -37,13 +37,13 @@ If you find the code or trained models useful, please consider citing:
     
 * __Object Classification__: 
 
-    Download and unzip [ModelNet40](https://shapenet.cs.stanford.edu/media/modelnet40_ply_hdf5_2048.zip) (415M), then symlink the path to it as follows (you can alternatively modify the path [here](https://github.com/mutianxu/GDANet/blob/main/data_util.py#L12)) :
+    Download and unzip [ModelNet40](https://shapenet.cs.stanford.edu/media/modelnet40_ply_hdf5_2048.zip) (415M), then symlink the path to it as follows (you can alternatively modify the path [here](https://github.com/mutianxu/GDANet/blob/main/util/data_util.py#L12)) :
     
     `ln -s /path to modelnet40/modelnet40_ply_hdf5_2048 data`
     
 * __Shape Part Segmentation__:
     
-    Download and unzip [ShapeNet Part](https://shapenet.cs.stanford.edu/media/shapenetcore_partanno_segmentation_benchmark_v0_normal.zip) (674M), then symlink the path to it as follows (you can alternatively modify the path [here](https://github.com/mutianxu/GDANet/blob/main/data_util.py#L70)) :
+    Download and unzip [ShapeNet Part](https://shapenet.cs.stanford.edu/media/shapenetcore_partanno_segmentation_benchmark_v0_normal.zip) (674M), then symlink the path to it as follows (you can alternatively modify the path [here](https://github.com/mutianxu/GDANet/blob/main/util/data_util.py#L70)) :
     
     `ln -s /path to shapenet part/shapenetcore_partanno_segmentation_benchmark_v0_normal data`
 
