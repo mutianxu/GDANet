@@ -54,7 +54,7 @@ class ModelNet40(Dataset):
         pointcloud = self.data[item][:self.num_points]
         label = self.label[item]
         if self.partition == 'train':
-            pointcloud = pc_normalize(pointcloud)
+            # pointcloud = pc_normalize(pointcloud)  # you can try to add it or not to train our model
             pointcloud = translate_pointcloud(pointcloud)
             np.random.shuffle(pointcloud)  # shuffle the order of pts
         return pointcloud, label
