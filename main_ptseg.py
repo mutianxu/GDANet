@@ -190,7 +190,7 @@ def train_epoch(train_loader, model, opt, scheduler, epoch, num_part, num_classe
         points, label, target, norm_plt = points.cuda(non_blocking=True), label.squeeze(1).cuda(non_blocking=True), \
                                           target.cuda(non_blocking=True), norm_plt.cuda(non_blocking=True)
         # target: b,n
-        seg_pred, loss = model(points, norm_plt, to_categorical(label, num_classes), target)  # seg_pred: b,n,50
+        seg_pred = model(points, norm_plt, to_categorical(label, num_classes))  # seg_pred: b,n,50
 
         # instance iou without considering the class average at each batch_size:
         batch_shapeious = compute_overall_iou(seg_pred, target, num_part)  # list of of current batch_iou:[iou1,iou2,...,iou#b_size]
