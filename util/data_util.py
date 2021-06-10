@@ -151,6 +151,9 @@ class PartNormalDataset(Dataset):
 
         return point_set, cls, seg, normal
 
+    def __len__(self):
+        return len(self.datapath)
+
 
 if __name__ == '__main__':
     train = ModelNet40(1024)
