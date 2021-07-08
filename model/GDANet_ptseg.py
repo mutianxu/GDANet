@@ -121,7 +121,7 @@ class GDANet(nn.Module):
         x = F.relu(self.conv7(x))
         x = self.conv8(x)
         x = F.log_softmax(x, dim=1)
-        x = x.permute(0, 2, 1)  # b,n,64
+        x = x.permute(0, 2, 1)  # b,n,50
 
         return x
 

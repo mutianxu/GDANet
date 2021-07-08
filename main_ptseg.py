@@ -192,22 +192,25 @@ def train_epoch(train_loader, model, opt, scheduler, epoch, num_part, num_classe
         # target: b,n
         seg_pred = model(points, norm_plt, to_categorical(label, num_classes))  # seg_pred: b,n,50
 
-        # instance iou without considering the class average at each batch_size:
-        batch_shapeious = compute_overall_iou(seg_pred, target, num_part)  # list of of current batch_iou:[iou1,iou2,...,iou#b_size]
-        # total iou of current batch in each process:
-        batch_shapeious = seg_pred.new_tensor([np.sum(batch_shapeious)], dtype=torch.float64)  # same device with seg_pred!!!
+        # loss
+        seg_pred = seg_pred.contiguous().view(-1, num_part)  # b*n,50
+        target = target.view(-1, 1)[:, 0]  # b*n
+        loss = F.nll_loss(seg_pred, target)
 
-        # Loss backward
+        # loss backward
         loss = torch.mean(loss)
         opt.zero_grad()
         loss.backward()
         opt.step()
 
         # accuracy
-        seg_pred = seg_pred.contiguous().view(-1, num_part)  # b*n,50
-        target = target.view(-1, 1)[:, 0]   # b*n
         pred_choice = seg_pred.contiguous().data.max(1)[1]  # b*n
         correct = pred_choice.eq(target.contiguous().data).sum()  # torch.int64: total number of correct-predict pts
+
+        # instance iou without considering the class average at each batch_size:
+        batch_shapeious = compute_overall_iou(seg_pred, target, num_part)  # list of of current batch_iou:[iou1,iou2,...,iou#b_size]
+        # total iou of current batch in each process:
+        batch_shapeious = seg_pred.new_tensor([np.sum(batch_shapeious)], dtype=torch.float64)  # same device with seg_pred!!!
 
         # sum
         shape_ious += batch_shapeious.item()  # count the sum of ious in each iteration
