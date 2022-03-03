@@ -16,9 +16,7 @@ from collections import defaultdict
 from torch.autograd import Variable
 import random
 
-
 classes_str = ['aero','bag','cap','car','chair','ear','guitar','knife','lamp','lapt','moto','mug','Pistol','rock','stake','table']
-
 
 def _init_():
     if not os.path.exists('checkpoints'):
@@ -87,10 +85,10 @@ def train(args, io):
         print("Training from scratch...")
 
     # =========== Dataloader =================
-    train_data = PartNormalDataset(npoints=2048, split='trainval', normalize=False)
+    train_data = PartNormalDataset(npoints=args.num_points, split='trainval', normalize=False)
     print("The number of training data is:%d", len(train_data))
 
-    test_data = PartNormalDataset(npoints=2048, split='test', normalize=False)
+    test_data = PartNormalDataset(npoints=args.num_points, split='test', normalize=False)
     print("The number of test data is:%d", len(test_data))
 
     train_loader = DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=6,
@@ -196,7 +194,7 @@ def train_epoch(train_loader, model, opt, scheduler, epoch, num_part, num_classe
         batch_shapeious = compute_overall_iou(seg_pred, target, num_part)  # list of of current batch_iou:[iou1,iou2,...,iou#b_size]
         # total iou of current batch in each process:
         batch_shapeious = seg_pred.new_tensor([np.sum(batch_shapeious)], dtype=torch.float64)  # same device with seg_pred!!!
-        
+
         # loss
         seg_pred = seg_pred.contiguous().view(-1, num_part)  # b*n,50
         target = target.view(-1, 1)[:, 0]  # b*n
@@ -304,7 +302,7 @@ def test_epoch(test_loader, model, epoch, num_part, num_classes, io):
 
 def test(args, io):
     # Dataloader
-    test_data = PartNormalDataset(npoints=2048, split='test', normalize=False)
+    test_data = PartNormalDataset(npoints=args.num_points, split='test', normalize=False)
     print("The number of test data is:%d", len(test_data))
 
     test_loader = DataLoader(test_data, batch_size=args.test_batch_size, shuffle=False, num_workers=6,
@@ -443,4 +441,3 @@ if __name__ == "__main__":
         train(args, io)
     else:
         test(args, io)
-
