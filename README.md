@@ -13,13 +13,12 @@ Geometry-Disentangled Attention Network for 3D object point cloud classification
 ## Citation
 If you find the code or trained models useful, please consider citing:
 
-    @misc{xu2021learning,
-      title={Learning Geometry-Disentangled Representation for Complementary Understanding of 3D Object Point Cloud},
+    @inproceedings{xu2021gdanet,
+      title={Learning Geometry-Disentangled Representation for Complementary Understanding of 3D Object Point Cloud}, 
       author={Mutian Xu and Junhao Zhang and Zhipeng Zhou and Mingye Xu and Xiaojuan Qi and Yu Qiao},
-      year={2021},
-      eprint={2012.10921},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+      booktitle={AAAI},
+      year={2021}
+    }
 
 
 ## Installation
