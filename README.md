@@ -83,6 +83,32 @@ If you find the code or trained models useful, please consider citing:
     * `python main_ptseg.py --eval True --model_type 'acc'` (best accuracy)
 
     **Note**: This works only after you trained the model or if you have the checkpoint in `checkpoints/GDANet`. If you run the training from scratch the checkpoints will automatically be generated there.
+ 
+
+## Performance
+The following tables report the current performances on different tasks and datasets.
+
+### Object Classification on ModelNet40
+
+| Method | OA |
+| :--- | :---: |
+| GDANet      | **93.8%** |
+
+### Object Classification under Corruptions on ModelNet-C.
+| Method |  mCE | Clean OA |
+| :--- | :---: | :---: |
+| GDANet    | **0.892** | **0.934** |
+
+### Object Classification against Common Corruptions on ModelNet40-C.
+| Method |  Corruption Error Rate (%) | Clean Error Rate (%) |
+| :--- | :---: | :---: |
+| GDANet    | **25.6** | **7.5** |
+
+
+### Shape Part Segmentation on ShapeNet Part
+| Method |  Class mIoU | Instance mIoU |
+| :--- | :---: | :---: |
+| PAConv _(*DGCNN)_    | **85.0%** | **86.5%** |
 
 ## Other information
 
@@ -90,3 +116,9 @@ Please contact Mutian Xu (mino1018@outlook.com) or Junhao Zhang (junhaozhang98@g
 
 ## Acknowledgement
 This code is is partially borrowed from [DGCNN](https://github.com/WangYueFt/dgcnn) and [PointNet++](https://github.com/charlesq34/pointnet2).  
+
+## Update
+
+20/05/2022:
+
+GDANet gains competitive performance on both [ModelNet-C](https://github.com/jiawei-ren/ModelNet-C) and [ModelNet40-C](https://github.com/jiachens/ModelNet40-C) datasets for object classification under corruptions.
