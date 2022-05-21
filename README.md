@@ -94,12 +94,12 @@ The following tables report the current performances on different tasks and data
 | :--- | :---: |
 | GDANet      | **93.8%** |
 
-### Object Classification under Corruptions on ModelNet-C.
+### Object Classification under Corruptions on [ModelNet-C](https://github.com/jiawei-ren/ModelNet-C).
 | Method |  mCE | Clean OA |
 | :--- | :---: | :---: |
 | GDANet    | **0.892** | **0.934** |
 
-### Object Classification against Common Corruptions on ModelNet40-C.
+### Object Classification against Common Corruptions on [ModelNet40-C](https://github.com/jiachens/ModelNet40-C).
 | Method |  Corruption Error Rate (%) | Clean Error Rate (%) |
 | :--- | :---: | :---: |
 | GDANet    | **25.6** | **7.5** |
