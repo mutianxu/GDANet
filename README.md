@@ -108,7 +108,7 @@ The following tables report the current performances on different tasks and data
 ### Shape Part Segmentation on ShapeNet Part
 | Method |  Class mIoU | Instance mIoU |
 | :--- | :---: | :---: |
-| PAConv _(*DGCNN)_    | **85.0%** | **86.5%** |
+| GDANet    | **85.0%** | **86.5%** |
 
 ## Other information
 
