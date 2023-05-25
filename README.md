@@ -94,8 +94,13 @@ The following tables report the current performances on different tasks and data
 | :--- | :---: |
 | GDANet      | **93.8%** |
 
+### Object Classification under Corruptions on [OmniObject3D](https://omniobject3d.github.io/).
+| Method | mean Corrution Error | Clean OA | Style OA |
+| :--- | :---: | :---: | :---: |
+| GDANet    | **0.920** | **0.934** | **0.497**
+
 ### Object Classification under Corruptions on [ModelNet-C](https://github.com/jiawei-ren/ModelNet-C).
-| Method |  mCE | Clean OA |
+| Method | mean Corrution Error | Clean OA |
 | :--- | :---: | :---: |
 | GDANet    | **0.892** | **0.934** |
 
@@ -121,4 +126,4 @@ This code is is partially borrowed from [DGCNN](https://github.com/WangYueFt/dgc
 
 20/05/2022:
 
-GDANet gains competitive performance on both [ModelNet-C](https://github.com/jiawei-ren/ModelNet-C) and [ModelNet40-C](https://github.com/jiachens/ModelNet40-C) datasets for object classification under corruptions.
+GDANet gains competitive performance on [OmniObject3D](https://omniobject3d.github.io/), [ModelNet-C](https://github.com/jiawei-ren/ModelNet-C) and [ModelNet40-C](https://github.com/jiachens/ModelNet40-C) datasets for object classification under corruptions.
