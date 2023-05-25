@@ -405,7 +405,7 @@ if __name__ == "__main__":
                         help='random seed (default: 1)')
     parser.add_argument('--eval', type=bool,  default=False,
                         help='evaluate the model')
-    parser.add_argument('--num_points', type=int, default=1024,
+    parser.add_argument('--num_points', type=int, default=2048,
                         help='num of points to use')
     parser.add_argument('--resume', type=bool, default=False,
                         help='Resume training or not')
