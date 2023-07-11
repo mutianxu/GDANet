@@ -7,7 +7,6 @@ by [Mutian Xu*](https://mutianxu.github.io/), [Junhao Zhang*](https://junhaozhan
 
 
 ## Overview
-Geometry-Disentangled Attention Network for 3D object point cloud classification and segmentation (GDANet):
 <img src = './imgs/GDANet.jpg' width = 800>
 
 ## Citation
