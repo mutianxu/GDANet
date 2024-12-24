@@ -19,6 +19,11 @@ If you find the code or trained models useful, please consider citing:
       year={2021}
     }
 
+## Update
+
+20/05/2022:
+
+GDANet becomes a standard and strong baseline model for **robust 3D recognition**, it gains competitive performance on [OmniObject3D](https://omniobject3d.github.io/), [ModelNet-C](https://github.com/jiawei-ren/ModelNet-C) and [ModelNet40-C](https://github.com/jiachens/ModelNet40-C) datasets for object classification under corruptions.
 
 ## Installation
 
@@ -120,9 +125,3 @@ Please contact Mutian Xu (mino1018@outlook.com) or Junhao Zhang (junhaozhang98@g
 
 ## Acknowledgement
 This code is is partially borrowed from [DGCNN](https://github.com/WangYueFt/dgcnn) and [PointNet++](https://github.com/charlesq34/pointnet2).  
-
-## Update
-
-20/05/2022:
-
-GDANet gains competitive performance on [OmniObject3D](https://omniobject3d.github.io/), [ModelNet-C](https://github.com/jiawei-ren/ModelNet-C) and [ModelNet40-C](https://github.com/jiachens/ModelNet40-C) datasets for object classification under corruptions.
